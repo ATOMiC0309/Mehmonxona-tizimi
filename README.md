@@ -11,7 +11,7 @@ Bu Django asosidagi web ilova. Quyidagi amallar yordamida loyihani lokal kompyut
 
 ### 1. Repository-ni klonlash
 ```bash
-git clone https://github.com/ATOMiC0309/Mehmonxona-tizimi
+git clone https://github.com/ATOMiC0309/Mehmonxona-tizimi.git
 cd Mehmonxona-tizimi
 ```
 ### 2. Loyihadagi kutubxonalarni o'rnatish
