@@ -11,6 +11,36 @@ Bu Django asosidagi web ilova. Quyidagi amallar yordamida loyihani lokal kompyut
 
 ### 1. Repository-ni klonlash
 ```bash
-git clone https://github.com/foydalanuvchi/loyiha-nomi.git
-cd loyiha-nomi
+git clone https://github.com/ATOMiC0309/Mehmonxona-tizimi
+cd Mehmonxona-tizimi
+```
+### 2. Loyihadagi kutubxonalarni o'rnatish
+```bash
+pip install -r requirements.txt
+```
+### 3. Ma'lumotlar bazasini sozlash(Migratsiyani bajarish)
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+### 4. Superuser (admin) yaratish(Admin panelga kirish uchun)
+```bash
+python manage.py createsuperuser
+```
+### 5. 🚀 Loyiha ishga tushirish
+```bash
+python manage.py runserver
+```
+### 6. Loyihani ko'zdan kechirish
+Loyiha muvaffaqqiyatli ishga tushgandan so'ng quyidagi havolani istalgan brouzerda oching:
+```bash
+http://127.0.0.1:8000
+```
+---
+# 🔐 Admin panelga kirish
+Loyiha ishga tushgach, quyidagi havola orqali admin panelga kirishingiz mumkin:
+```bash
+http://127.0.0.1:8000/admin
+```
+-⚠️ Admin panelga kirish uchun oldin createsuperuser orqali yaratilgan foydalanuvchi ma'lumotlari bilan tizimga kiring.
 
