@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block title %}Mening profilim{% endblock %}
+{% block content %}
+<h2>Salom, {{ user.username }}!</h2>
+<p>Bu qism tez orada ishga tushadi</p>
+<a href="{% url 'hotel_list' %}" class="btn btn-danger">Qaytish</a>
+<a href="{% url 'logout' %}" class="btn btn-danger">Tizimdan chiqish</a>
+{% endblock %}

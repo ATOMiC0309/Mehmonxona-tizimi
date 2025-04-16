@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}To‘lov Qilish{% endblock %}
+{% block content %}
+<h2>To‘lov qilish</h2>
+<p>Xona: {{ booking.room.room_number }} | Sana: {{ booking.check_in }} – {{ booking.check_out }}</p>
+<form method="post" class="mt-3">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">To‘lovni amalga oshirish</button>
+</form>
+{% endblock %}

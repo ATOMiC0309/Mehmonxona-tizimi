@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Mening Bandlovlar{% endblock %}
+{% block content %}
+<h2>Mening Bandlovlarim</h2>
+<table class="table table-bordered">
+    <thead><tr><th>Xona</th><th>Sana</th><th>Holat</th><th>To‘lov</th></tr></thead>
+    <tbody>
+        {% for b in bookings %}
+            <tr>
+                <td>{{ b.room.room_number }}</td>
+                <td>{{ b.check_in }} – {{ b.check_out }}</td>
+                <td>
+                    {% if b.is_confirmed %}
+                        <span class="badge bg-success">Tasdiqlangan</span>
+                    {% else %}
+                        <span class="badge bg-warning text-dark">Kutilmoqda</span>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if b.is_confirmed and not b.payment %}
+                        <a href="{% url 'make_payment' b.id %}" class="btn btn-sm btn-primary">To‘lov qilish</a>
+                    {% elif b.payment %}
+                        <a href="{% url 'view_receipt' b.payment.id %}" class="btn btn-sm btn-secondary">Kvitansiya</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

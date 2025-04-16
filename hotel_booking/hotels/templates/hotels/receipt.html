@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Kvitansiya{% endblock %}
+{% block content %}
+<h2>Kvitansiya</h2>
+<ul class="list-group mb-3">
+    <li class="list-group-item"><strong>Foydalanuvchi:</strong> {{ payment.booking.user.username }}</li>
+    <li class="list-group-item"><strong>Xona:</strong> {{ payment.booking.room }}</li>
+    <li class="list-group-item"><strong>Sana:</strong> {{ payment.booking.check_in }} – {{ payment.booking.check_out }}</li>
+    <li class="list-group-item"><strong>Summasi:</strong> {{ payment.amount }} so‘m</li>
+    <li class="list-group-item"><strong>Transaction ID:</strong> {{ payment.transaction_id }}</li>
+    <li class="list-group-item"><strong>Vaqti:</strong> {{ payment.paid_at }}</li>
+</ul>
+<a href="{% url 'download_receipt_pdf' payment.id %}" class="btn btn-outline-secondary">PDF Yuklab olish</a>
+<a href="{% url 'my_bookings' %}" class="btn btn-primary ms-2">Orqaga</a>
+{% endblock %}

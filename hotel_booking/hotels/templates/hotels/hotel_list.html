@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Mehmonxonalar Ro'yxati{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Mehmonxonalar Ro'yxati</h2>
+    {% if user.is_staff %}
+        <a class="btn btn-success" href="{% url 'add_hotel' %}">+ Yangi mehmonxona</a>
+    {% endif %}
+</div>
+{% if hotels %}
+    <div class="list-group">
+        {% for hotel in hotels %}
+            <a href="{% url 'hotel_detail' hotel.id %}" class="list-group-item list-group-item-action">
+                <strong>{{ hotel.name }}</strong> — {{ hotel.location }}
+            </a>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>Hech qanday mehmonxona mavjud emas.</p>
+{% endif %}
+{% endblock %}

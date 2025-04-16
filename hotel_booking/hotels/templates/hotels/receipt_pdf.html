@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <style>
+        body { font-family: Arial; font-size: 12pt; }
+        h2 { text-align: center; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #333; padding: 6px; }
+        th { background: #eee; }
+    </style>
+</head>
+<body>
+<h2>To‘lov Kvitansiyasi</h2>
+<table>
+    <tr><th>Foydalanuvchi</th><td>{{ payment.booking.user.username }}</td></tr>
+    <tr><th>Xona</th><td>{{ payment.booking.room }}</td></tr>
+    <tr><th>Kirish - Chiqish</th><td>{{ payment.booking.check_in }} – {{ payment.booking.check_out }}</td></tr>
+    <tr><th>Summasi</th><td>{{ payment.amount }} so‘m</td></tr>
+    <tr><th>Transaction ID</th><td>{{ payment.transaction_id }}</td></tr>
+    <tr><th>Vaqti</th><td>{{ payment.paid_at }}</td></tr>
+</table>
+</body>
+</html>

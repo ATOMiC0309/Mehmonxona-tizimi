@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}{{ hotel.name }}{% endblock %}
+{% block content %}
+<h2>{{ hotel.name }}</h2>
+<p>{{ hotel.description }}</p>
+<p><strong>Manzil:</strong> {{ hotel.location }}</p>
+<p><strong>O‘rtacha reyting:</strong> {{ average_rating }} ⭐</p>
+{% if user.is_authenticated and user.is_staff %}
+    <a href="{% url 'room_list' hotel.id %}" class="btn btn-info mb-3">Xonalarni ko‘rish</a>
+{% else %}
+    <a href="{% url 'room_list' hotel.id %}" class="btn btn-info mb-3">Xonalarni ko‘rish</a>
+{% endif %}
+
+<!-- Sharh qoldirish -->
+{% if user.is_authenticated %}
+    <a href="{% url 'add_review' hotel.id %}" class="btn btn-outline-success mb-3">Sharh yozish</a>
+{% endif %}
+<!-- Sharhlar -->
+<h4>Sharhlar:</h4>
+{% for review in reviews %}
+    <div class="border p-3 mb-2">
+        <strong>{{ review.user.username }}</strong> — {{ review.rating }}⭐ <small class="text-muted">({{ review.created_at|date:"Y-m-d H:i" }})</small>
+        <p>{{ review.comment }}</p>
+    </div>
+{% empty %}
+    <p>Hozircha sharhlar yo‘q.</p>
+{% endfor %}
+{% endblock %}

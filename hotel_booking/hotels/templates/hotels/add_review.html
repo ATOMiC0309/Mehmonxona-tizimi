@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Sharh Qo‘shish{% endblock %}
+{% block content %}
+<h2>{{ hotel.name }} uchun Sharh Qo‘shish</h2>
+<form method="post" class="mt-3">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Yuborish</button>
+    <a href="{% url 'hotel_detail' hotel.id %}" class="btn btn-secondary ms-2">Bekor qilish</a>
+</form>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Barcha Bandlovlar{% endblock %}
+{% block content %}
+<h2>Barcha Bandlovlar</h2>
+<table class="table">
+    <thead><tr><th>#</th><th>Foydalanuvchi</th><th>Xona</th><th>Sana</th><th>Holat</th><th>Amal</th></tr></thead>
+    <tbody>
+        {% for b in bookings %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ b.user.username }}</td>
+                <td>{{ b.room.room_number }}</td>
+                <td>{{ b.check_in }} – {{ b.check_out }}</td>
+                <td>
+                    {% if b.is_confirmed %}<span class="badge bg-success">Tasdiqlangan</span>{% else %}<span class="badge bg-warning text-dark">Kutilmoqda</span>{% endif %}
+                </td>
+                <td>
+                    {% if not b.is_confirmed %}
+                        <a href="{% url 'confirm_booking' b.id %}" class="btn btn-sm btn-primary">Tasdiqlash</a>
+                    {% else %}
+                        <span class="text-muted">Tasdiqlangan</span>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

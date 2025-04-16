@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Xona Band Qilish{% endblock %}
+{% block content %}
+<h2>Band qilish: {{ room.room_number }}</h2>
+<p>Narx: {{ room.price_per_night }} so‘m / kecha</p>
+<form method="post" class="mt-3">
+    {%csrf_token%}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Band qilish</button>
+    <a href="{% url 'room_list' room.hotel.id %}" class="btn btn-secondary ms-2">Bekor qilish</a>
+</form>
+{% endblock %}
